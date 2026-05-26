@@ -24,12 +24,12 @@ echo  =============================================================
 echo   STEP 1: THE INPUT BRIEF
 echo  =============================================================
 echo.
-echo  Product:   $197 6-week productivity course for solo SaaS founders
-echo  Tagline:   Ship the boring features without burning out
-echo  Audience:  4,200 indie devs, mostly solo SaaS founders
-echo  Launch:    Cart opens Monday, closes Friday
-echo  Bonus:     1:1 review session for first 20 buyers
-echo  Voice:     Direct, technical, no fluff
+echo  Product:   $39 Course Creator Pack for info-product creators
+echo  Tagline:   Ship the writing, support, and launch busywork — not the course
+echo  Audience:  11,200 course creators, coaches, and info-product sellers
+echo  Launch:    Cart opens Tuesday, closes Friday at midnight
+echo  Bonus:     7 bonus scripts for early buyers
+echo  Voice:     Direct, no fluff, treats buyers like smart people
 echo.
 echo  Press any key to submit this to the agent...
 pause >nul
@@ -51,7 +51,7 @@ cd /d "%~dp0"
 
 :: Pipe the brief into the agent via stdin, ending with END sentinel
 (
-echo $197 6-week productivity course for solo SaaS founders. Tagline: ship the boring features without burning out. List of 4,200 mostly indie devs. Cart opens Monday, closes Friday at midnight. Bonus: 1:1 review session for first 20 buyers. Voice: direct, technical, no fluff.
+echo $39 Course Creator Pack for info-product creators. Tagline: ship the writing, support, and launch busywork — not the course. List of 11,200 course creators, coaches, and info-product sellers. Cart opens Tuesday, closes Friday at midnight. Bonus: 7 bonus scripts for early buyers. Voice: direct, no fluff, treats buyers like smart people.
 echo END
 ) | python "%~dp0launch_email_sequencer\agent.py"
 
