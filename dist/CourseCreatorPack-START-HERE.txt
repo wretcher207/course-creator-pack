@@ -1,0 +1,57 @@
+COURSE CREATOR PACK
+===================
+Setup time: ~3 minutes. After that, double-click any agent and go.
+
+FASTEST START
+-------------
+Want the launch email flow only? Double-click:
+  Launch Email Sequencer.exe
+
+No Python install is needed for that executable. It still needs your free
+OpenRouter key saved at C:\Users\YOU\Desktop\openrouter-api.txt or in the
+OPENROUTER_API_KEY environment variable.
+
+QUICK START
+-----------
+1. Install Python 3.11+ (python.org/downloads, check "Add to PATH")
+2. Get a free OpenRouter key at openrouter.ai/keys (no credit card)
+3. Save your key to C:\Users\YOU\Desktop\openrouter-api.txt
+   OR set the OPENROUTER_API_KEY environment variable
+4. Double-click setup.bat (one-time, creates the working environment)
+5. Double-click any run_*.bat to launch that agent
+
+THE 7 AGENTS
+------------
+run_launch_email_sequencer.bat   Product launch sequence, 6 emails + follow-up
+run_sales_page_critique.bat      Paste your sales page, get specific rewrites
+run_refund_deescalator.bat       Handle refund requests tactfully
+run_customer_qa.bat               Answer pre-purchase questions honestly
+run_affiliate_outreach.bat        Personalized affiliate pitch + follow-up
+run_testimonial_collector.bat     Ask for testimonials at the right moment
+run_lesson_outliner.bat           Structured lesson outline, hook to close
+
+SMOKE TEST
+----------
+Run the smoke test to verify everything is connected and working:
+  venv\Scripts\python.exe smoke_test.py
+This hits your OpenRouter key 7 times. Uses ~7 of your 200 daily free requests.
+
+COST
+----
+$0/month as long as you stay on OpenRouter's free tier. The shared/client.py
+has a fallback chain of 7 free models. If you outgrow the free tier, change
+one line in shared/client.py to a paid model.
+
+LICENSE
+-------
+Commercial use permitted in your own course/info-product business. Do not resell.
+Full terms: LICENSE.md
+
+PROBLEMS?
+---------
+Check your OpenRouter key is saved correctly. The key loader looks for:
+  1. C:\Users\<you>\Desktop\openrouter-api.txt
+  2. .env file in the same folder as the bat files
+  3. OPENROUTER_API_KEY env var
+
+Run setup.bat again if anything breaks after a system update.

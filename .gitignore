@@ -1,0 +1,48 @@
+# Byte-compiled Python
+__pycache__/
+*.py[cod]
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Build outputs
+build/
+dist/*.exe
+dist/*.zip
+dist/*.png
+dist/windows/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# API keys / secrets (user must provide their own)
+.env
+.env.local
+openrouter-api-key.txt
+
+# Logs
+*.log
+
+# Temp / scratch
+tmp/
+temp/
+*.tmp
