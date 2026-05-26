@@ -1,7 +1,7 @@
 # Course Creator Pack
 > Seven AI agents that take the writing, customer support, and launch busywork off a working course creator's plate. Runs forever at $0/month.
 
-[Course Creator Pack · Gumroad](https://DAVID'S_GUMROAD_LINK)
+[Course Creator Pack · Gumroad](https://GiganticDadPants.gumroad.com/l/jrlmrg)
 
 ## What this is
 

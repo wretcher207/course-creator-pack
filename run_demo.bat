@@ -79,8 +79,8 @@ echo    run_testimonial_collector.bat  Paste a buyer, get the right ask + follow
 echo    run_lesson_outliner.bat         Paste a topic, get a full outline with hooks
 echo.
 echo  =============================================================
-echo   GET THE PACK: [YOUR_GUMROAD_LINK]
-echo   Launch price: $39  —  $49 after launch
+echo   GET THE PACK: https://GiganticDadPants.gumroad.com/l/jrlmrg
+echo   Price: $39  —  $49 after launch
 echo   No monthly fee. No SaaS. Own it forever.
 echo  =============================================================
 echo.
