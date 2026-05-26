@@ -80,18 +80,33 @@ def main() -> None:
     print("=== Customer Q&A Agent ===")
     print("Powered by free OpenRouter models. Costs $0 to test.\n")
 
-    q = _read_block("Paste the buyer's question")
-    if not q:
-        print("No question given. Exiting.")
-        return
-    print()
-    ctx = _read_block(
-        "Paste your product details (what it is, who it is for, what's included, "
-        "what's NOT included, price, format, refund policy, level required)"
-    )
-    if not ctx:
-        print("No product context given. Without context the agent will not answer well. Exiting.")
-        return
+    if len(sys.argv) > 1 and sys.argv[1] == "--stdin":
+        content = sys.stdin.read().strip()
+        parts = content.split("END\n")
+        if len(parts) < 2:
+            print("Invalid input format. Expected: question block END, context block END")
+            return
+        q = parts[0].strip()
+        ctx = parts[1].strip() if len(parts) > 1 else ""
+        if not q:
+            print("No question given. Exiting.")
+            return
+        if not ctx:
+            print("No product context given. Exiting.")
+            return
+    else:
+        q = _read_block("Paste the buyer's question")
+        if not q:
+            print("No question given. Exiting.")
+            return
+        print()
+        ctx = _read_block(
+            "Paste your product details (what it is, who it is for, what's included, "
+            "what's NOT included, price, format, refund policy, level required)"
+        )
+        if not ctx:
+            print("No product context given. Exiting.")
+            return
 
     print("\nThinking...")
     _print_result(answer(q, ctx))

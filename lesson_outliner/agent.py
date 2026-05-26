@@ -36,7 +36,7 @@ def _read_block(label: str) -> str:
 
 
 def _section(title: str, body: str) -> None:
-    print()
+    print>()
     print("=" * 60)
     print(title)
     print("=" * 60)
@@ -92,13 +92,19 @@ def main() -> None:
     print("=== Lesson Outliner Agent ===")
     print("Powered by free OpenRouter models. Costs $0 to test.\n")
 
-    brief = _read_block(
-        "Describe the lesson (topic, audience, target length in minutes, "
-        "what the previous/next lessons cover, anything explicitly NOT in scope)"
-    )
-    if not brief:
-        print("No brief given. Exiting.")
-        return
+    if len(sys.argv) > 1 and sys.argv[1] == "--stdin":
+        brief = sys.stdin.read().strip()
+        if not brief:
+            print("No brief given. Exiting.")
+            return
+    else:
+        brief = _read_block(
+            "Describe the lesson (topic, audience, target length in minutes, "
+            "what the previous/next lessons cover, anything explicitly NOT in scope)"
+        )
+        if not brief:
+            print("No brief given. Exiting.")
+            return
 
     print("\nThinking...")
     _print_result(outline(brief))

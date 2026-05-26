@@ -77,19 +77,34 @@ def main() -> None:
     print("=== Affiliate Outreach Agent ===")
     print("Powered by free OpenRouter models. Costs $0 to test.\n")
 
-    pt = _read_block(
-        "Paste your product + affiliate terms (commission %, cookie window, payout, etc.)"
-    )
-    if not pt:
-        print("No product/terms given. Exiting.")
-        return
-    print()
-    p = _read_block(
-        "Describe the prospect (their newsletter / podcast / YouTube / community, audience size, niche, recent work)"
-    )
-    if not p:
-        print("No prospect given. Exiting.")
-        return
+    if len(sys.argv) > 1 and sys.argv[1] == "--stdin":
+        content = sys.stdin.read().strip()
+        parts = content.split("END\n")
+        if len(parts) < 2:
+            print("Invalid input format. Expected: product/terms block END, prospect block END")
+            return
+        pt = parts[0].strip()
+        p = parts[1].strip()
+        if not pt:
+            print("No product/terms given. Exiting.")
+            return
+        if not p:
+            print("No prospect given. Exiting.")
+            return
+    else:
+        pt = _read_block(
+            "Paste your product + affiliate terms (commission %, cookie window, payout, etc.)"
+        )
+        if not pt:
+            print("No product/terms given. Exiting.")
+            return
+        print()
+        p = _read_block(
+            "Describe the prospect (their newsletter / podcast / YouTube / community, audience size, niche, recent work)"
+        )
+        if not p:
+            print("No prospect given. Exiting.")
+            return
 
     print("\nThinking...")
     _print_result(make_pitch(pt, p))

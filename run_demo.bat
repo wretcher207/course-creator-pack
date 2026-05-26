@@ -46,14 +46,9 @@ echo.
 echo  Calling the agent now...
 echo.
 
-:: Run from the pack root directory
 cd /d "%~dp0"
 
-:: Pipe the brief into the agent via stdin, ending with END sentinel
-(
-echo $39 Course Creator Pack for info-product creators. Tagline: ship the writing, support, and launch busywork — not the course. List of 11,200 course creators, coaches, and info-product sellers. Cart opens Tuesday, closes Friday at midnight. Bonus: 7 bonus scripts for early buyers. Voice: direct, no fluff, treats buyers like smart people.
-echo END
-) | python "%~dp0launch_email_sequencer\agent.py"
+python -m launch_email_sequencer.agent --stdin < "%~dp0run_launch_email_sequencer_input.txt"
 
 echo.
 echo  =============================================================
@@ -61,7 +56,7 @@ echo   THAT'S THE LAUNCH EMAIL SEQUENCER
 echo  =============================================================
 echo.
 echo  Output includes:
-echo    - 6-email launch sequence with subjects 7 timing
+echo    - 6-email launch sequence with subjects + timing
 echo    - Copy written in your exact voice
 echo    - Urgency CTA tied to your bonus
 echo    - Abandonment follow-up for cart abandoners

@@ -1,0 +1,19 @@
+Headline: The Complete Photography Masterclass — From Zero to Pro in 30 Days
+Subhead: Learn shooting, editing, and business in one place. No gear required.
+Body: You want to take better photos. Not just "nice" photos — real, technically solid images that tell a story. This course covers everything from how a camera actually works to advanced composition and light shaping.
+Bullets:
+- 42 on-demand video lessons (8–15 min each)
+- 6 photo walks with real-world shooting demos
+- Lightroom preset pack included
+- Private community access
+- Certificate of completion
+FAQ:
+Q: Do I need an expensive camera? A: No. Works with any DSLR, mirrorless, or smartphone.
+Q: How long do I have access? A: Lifetime.
+Q: Refund policy? A: 30-day money-back, no questions asked.
+CTA: Enroll Now — $79
+Price: $79 one-time
+END
+Optional context (target buyer, current conversion rate, price) — or just type END
+No additional context needed.
+END

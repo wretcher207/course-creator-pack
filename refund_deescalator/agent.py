@@ -75,14 +75,24 @@ def main() -> None:
     print("=== Refund De-escalator Agent ===")
     print("Powered by free OpenRouter models. Costs $0 to test.\n")
 
-    req = _read_block("Paste the refund request from the buyer")
-    if not req:
-        print("No request given. Exiting.")
-        return
-    print()
-    ctx = _read_block(
-        "Optional context (product name, refund policy, days since purchase) — or just type END"
-    )
+    if len(sys.argv) > 1 and sys.argv[1] == "--stdin":
+        # Input file format: first block up to END, then second block up to END
+        content = sys.stdin.read().strip()
+        parts = content.split("END\n")
+        if len(parts) < 2:
+            print("Invalid input format. Expected: request block, END, context block, END")
+            return
+        req = parts[0].strip()
+        ctx = parts[1].strip() if len(parts) > 1 else ""
+    else:
+        req = _read_block("Paste the refund request from the buyer")
+        if not req:
+            print("No request given. Exiting.")
+            return
+        print()
+        ctx = _read_block(
+            "Optional context (product name, refund policy, days since purchase) — or just type END"
+        )
 
     print("\nThinking...")
     _print_result(respond(req, ctx))

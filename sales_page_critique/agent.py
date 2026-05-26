@@ -105,14 +105,21 @@ def main() -> None:
     print("=== Sales Page Critique Agent ===")
     print("Powered by free OpenRouter models. Costs $0 to test.\n")
 
-    page = _read_block("Paste the full sales page (headline + body + FAQ + CTA + price)")
-    if not page:
-        print("No page given. Exiting.")
-        return
-    print()
-    ctx = _read_block(
-        "Optional context (target buyer, current conversion rate, price) — or just type END"
-    )
+    if len(sys.argv) > 1 and sys.argv[1] == "--stdin":
+        page = sys.stdin.read().strip()
+        if not page:
+            print("No input provided. Exiting.")
+            return
+        ctx = ""
+    else:
+        page = _read_block("Paste the full sales page (headline + body + FAQ + CTA + price)")
+        if not page:
+            print("No page given. Exiting.")
+            return
+        print()
+        ctx = _read_block(
+            "Optional context (target buyer, current conversion rate, price) — or just type END"
+        )
 
     print("\nThinking...")
     _print_result(critique(page, ctx))

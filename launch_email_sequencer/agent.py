@@ -72,13 +72,19 @@ def main() -> None:
     print("=== Launch Email Sequencer ===")
     print("Powered by free OpenRouter models. Costs $0 to test.\n")
 
-    ctx = _read_block(
-        "Describe the launch (product, who it is for, transformation, price, "
-        "launch dates, bonuses if any, list size, voice notes)"
-    )
-    if not ctx:
-        print("No launch context given. Exiting.")
-        return
+    if len(sys.argv) > 1 and sys.argv[1] == "--stdin":
+        ctx = sys.stdin.read().strip()
+        if not ctx:
+            print("No input provided. Exiting.")
+            return
+    else:
+        ctx = _read_block(
+            "Describe the launch (product, who it is for, transformation, price, "
+            "launch dates, bonuses if any, list size, voice notes)"
+        )
+        if not ctx:
+            print("No launch context given. Exiting.")
+            return
 
     print("\nThinking...")
     _print_result(build_sequence(ctx))
